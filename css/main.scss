@@ -1,0 +1,207 @@
+@import "~bootstrap/scss/bootstrap";
+
+*{
+margin: 0;
+padding: 0;
+font-family: 'Montserrat', sans-serif;
+}
+
+
+body {
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-color: black;
+	background-image: url('city_skyline.jpeg')
+}
+
+/*div {
+	border: 1px solid black;
+}*/
+
+/*#app{
+	height: 100vh;
+}
+
+.container-fluid {
+	height: 100vh;
+}*/
+
+
+.forecast {
+	z-index: 2;
+	position: absolute;
+}
+
+.row {
+	height: 100vh;
+}
+
+.news {
+	overflow: scroll;
+}
+
+.news button {
+	float: right;
+}
+
+li {
+	color: white;
+}
+
+ul {
+	list-style: none;
+	padding: 0 40px;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	color :black;
+	height: 100%;
+	z-index: 1
+}
+
+.time {
+	text-align: center;
+	margin: 1rem;
+	padding: 1rem;
+}
+
+.date {
+	font-size: 1.5em;
+}
+
+.clock {
+	font-size: 8rem;
+	font-weight: 700;
+	margin: 0;
+
+}
+
+.todo {
+	text-align: center;
+	display: flex;
+	justify-content: flex-end;
+	align-content: flex-end;
+	flex-direction: column;
+}
+
+.list {
+	overflow: scroll;
+	height: 20vh;
+	margin-bottom: 40px;
+}
+
+.todos {
+	overflow: hidden;
+	max-height: 20%;
+}
+
+/*.todo form {
+	align-self: center;
+}*/
+form {
+	align-self: center;
+	align-items: flex-end;
+}
+
+form input {
+	background-color: hsla(50, 0%, 50%, 0.7);
+	border: none;
+	color:white;
+}
+
+a:link {
+	color: white;
+	text-decoration: none;
+}
+
+a:hover {
+	color: white;
+	text-decoration: none;
+}
+
+a:visited {
+	color:white;
+}
+
+input:checked + label {
+	color : grey;
+	text-decoration: line-through;
+}
+
+label {
+	padding: 5px;
+	text-align: center;
+}
+
+.weather {
+	color: black;
+	text-align: center;
+	font-size: 2em;
+
+}
+
+
+.news ul {
+	height: 100vh;
+	overflow: scroll;
+	background-color: hsla(50, 0%, 50%, 0.35);
+}
+
+.hidden {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+.removeToDo {
+	-webkit-border-radius: 20;
+  -moz-border-radius: 20;
+  border-radius: 20px;
+  font-family: Arial;
+  color: #f5f5f5;
+  font-size: 10px;
+  background: hsla(50, 0%, 50%, 0.35);
+  padding: 0px 5px 0px 5px;
+  text-decoration: none;
+}
+
+.removeToDo:hover {
+	background: #495257;
+  text-decoration: none;
+}
+
+.formQuestion {
+	color: white;
+	font-size: 2rem; 
+}
+
+.showNews {
+	-webkit-border-radius: 20;
+  -moz-border-radius: 20;
+	background: none;
+	color: white;
+	 text-decoration: none;
+	 border: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

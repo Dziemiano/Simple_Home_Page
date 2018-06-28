@@ -1,0 +1,4 @@
+config.js
+node_modules/
+dist/*.hot-update.json
+dist/*.hot-update.js
