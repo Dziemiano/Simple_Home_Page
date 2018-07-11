@@ -17,49 +17,39 @@ export default class GetCurrentWeather extends React.Component {
         }
     }
 
-    componentDidMount() {
-        navigator.geolocation.getCurrentPosition((position, $) => { 
-            const lat = position.coords.latitude;
-            const long = position.coords.longitude;
-            this.setState ({
-                long: long.toFixed(4),
-                lat: lat.toFixed(4)
+    getWeather = () => {
+      const apiLink = 'https://api.openweathermap.org/data/2.5';
+      const apiKey = config.WEATHER_KEY;
+
+      const firstPromise = 
+            fetch(`${apiLink}/weather?lat=${this.state.lat}&lon=${this.state.long}&APPID=${apiKey}`)
+      .then((response) => response.json())
+
+      const secondPromise = 
+            fetch(`${apiLink}/forecast?lat=${this.state.lat}&lon=${this.state.long}&APPID=${apiKey}`)
+      .then((response) => response.json())
+
+
+      Promise.all([firstPromise, secondPromise])
+        .then(([data1, data2]) => {
+            this.setState({
+                current: data1.main.temp-273.15,
+                name: data1.name,
             })
-
-            console.log(this.state.lat)
-            console.log(this.state.long)
-
-            const apiLink = 'https://api.openweathermap.org/data/2.5';
-            const apiKey = config.WEATHER_KEY;
-
-            const firstPromise = 
-                fetch(`${apiLink}/weather?lat=${lat}&lon=${long}&APPID=${apiKey}`)
-                    .then((response) => response.json())
-
-            const secondPromise = 
-                fetch(`${apiLink}/forecast?lat=${lat}&lon=${long}&APPID=${apiKey}`)
-                    .then((response) => response.json())
-
-
-            Promise.all([firstPromise, secondPromise])
-                .then(([data1, data2]) => {
-            
-                    const cur = data1.main.temp;
-                    const forecast = data2.list[9].main.temp;
-
-                    this.setState({
-                        current: cur-273.15,
-                        name: data1.name,
-                        day: data2.list[9].dt_txt,
-                    })
-                })
-                .catch(error => {
-                    console.error(error);
-                })
-
-
-
         })
+        .catch(error => {
+        console.error(error);
+      })
+    }
+
+    componentWillMount() {
+      navigator.geolocation.getCurrentPosition((position, $) => { 
+        this.setState ({
+          long: position.coords.longitude.toFixed(4),
+          lat: position.coords.latitude.toFixed(4)
+        })
+        this.getWeather()
+      })
     }
 
     handleClick = () => {
@@ -69,6 +59,9 @@ export default class GetCurrentWeather extends React.Component {
     
     render() {
         const forecastKey = config.FORECAST_KEY
+        console.log(this.state.lat)
+        let lat = this.state.lat
+        let long = this.state.long
         return (
             <section className="weather">
                 <div>
@@ -78,8 +71,8 @@ export default class GetCurrentWeather extends React.Component {
                         forecast="5days"
                         apikey= {forecastKey}
                         type="geo"
-                        lat="54.3813"
-                        lon="18.5908"/>
+                        lat={lat}
+                        lon={long}/>
                     </div>
                 </div>  
             </section>
