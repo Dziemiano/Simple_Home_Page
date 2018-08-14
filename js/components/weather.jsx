@@ -33,7 +33,7 @@ export default class GetCurrentWeather extends React.Component {
       Promise.all([firstPromise, secondPromise])
         .then(([data1, data2]) => {
             this.setState({
-                current: data1.main.temp-273.15,
+                current: data1.main.temp-273.15+"°C",
                 name: data1.name,
             })
         })
@@ -42,7 +42,7 @@ export default class GetCurrentWeather extends React.Component {
       })
     }
 
-    componentWillMount() {
+    componentDidMount() {
       navigator.geolocation.getCurrentPosition((position, $) => { 
         this.setState ({
           long: position.coords.longitude.toFixed(4),
@@ -64,8 +64,7 @@ export default class GetCurrentWeather extends React.Component {
         let long = this.state.long
         return (
             <section className="weather">
-                <div>
-                    <p onClick={this.handleClick}>{this.state.name} {this.state.current}°C</p>
+                    <p onClick={this.handleClick}>{this.state.name} {this.state.current}</p>
                     <div  className={this.state.toggle + ' forecast'}>  
                         <ReactWeather
                         forecast="5days"
@@ -74,7 +73,6 @@ export default class GetCurrentWeather extends React.Component {
                         lat={lat}
                         lon={long}/>
                     </div>
-                </div>  
             </section>
         )
        }

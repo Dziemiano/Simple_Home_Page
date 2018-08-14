@@ -40,17 +40,19 @@ export default class GetNews extends React.Component {
             return (
                 <div className="news">
                     <button className="showNews" onClick={this.handleClick}>News</button>
-                    <ul className={this.state.showHide}>
-                        {
-                            this.state.news.map((e,i) => {
-                                return <li key={i}>
-                                    <a target='_blank' href={e.url}>
-                                        <p>{e.title}</p>
-                                    </a>
-                                </li>
-                            })
-                        }
-                    </ul>
+                    <div>
+                        <ul className={this.state.showHide}>
+                            {
+                                this.state.news.map((e,i) => {
+                                    return <li key={i}>
+                                        <a target='_blank' href={e.url}>
+                                            <p>{e.title}</p>
+                                        </a>
+                                    </li>
+                                })
+                            }
+                        </ul>
+                    </div>
                 </div>
             )            
         } else {
