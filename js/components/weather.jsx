@@ -42,7 +42,7 @@ export default class GetCurrentWeather extends React.Component {
       })
     }
 
-    componentDidMount() {
+    componentWillMount() {
       navigator.geolocation.getCurrentPosition((position, $) => { 
         this.setState ({
           long: position.coords.longitude.toFixed(4),
@@ -69,9 +69,7 @@ export default class GetCurrentWeather extends React.Component {
                         <ReactWeather
                         forecast="5days"
                         apikey= {forecastKey}
-                        type="geo"
-                        lat={lat}
-                        lon={long}/>
+                        type="auto"/>
                     </div>
             </section>
         )

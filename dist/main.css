@@ -1420,9 +1420,6 @@ pre {
     border-color: #80bdff;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
-  .form-control::-webkit-input-placeholder {
-    color: #6c757d;
-    opacity: 1; }
   .form-control:-ms-input-placeholder {
     color: #6c757d;
     opacity: 1; }
@@ -6677,6 +6674,9 @@ label {
   text-decoration: none;
   border: none; }
 
+.news > div > ul {
+  margin-bottom: 0px; }
+
 @media (max-width: 640px) {
   .weather {
     color: black;
@@ -6781,7 +6781,7 @@ label {
 
 @media (min-width: 1024px) {
   .container-fluid {
-    padding: 0 15px 15px; }
+    padding: 0 15px; }
   .twitter {
     padding-top: 15px; }
   .weather {

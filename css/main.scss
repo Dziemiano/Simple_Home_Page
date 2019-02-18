@@ -177,6 +177,9 @@ label {
 	border: none;
 }
 
+.news > div > ul {
+	margin-bottom: 0px;
+}
 
 @media (max-width: 640px) {
 
@@ -327,7 +330,7 @@ label {
 @media (min-width: 1024px) {
 
 	.container-fluid {
-		padding: 0 15px 15px;
+		padding: 0 15px;
 	}
 
 	.twitter {
