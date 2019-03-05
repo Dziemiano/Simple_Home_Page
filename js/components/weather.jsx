@@ -33,7 +33,7 @@ export default class GetCurrentWeather extends React.Component {
       Promise.all([firstPromise, secondPromise])
         .then(([data1, data2]) => {
             this.setState({
-                current: data1.main.temp-273.15+"°C",
+                current: parseInt(data1.main.temp-273.15)+"°C",
                 name: data1.name,
             })
         })
